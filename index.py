@@ -3,7 +3,7 @@ import requests
 import json
 import os
 
-name = os.getenv('name','name为空')
+name = os.getenv('nam','name为空')
 pwd = os.getenv('pwd','')
 
 
