@@ -19,7 +19,7 @@ jobs:
         python-version: 3.7
         
     - name: '安装 requirements'
-      run: pip install - r ./requirements.txt
+      run: pip install -r ./requirements.txt
       
     - name: '运行【签到】'
       run: python3 index.py
