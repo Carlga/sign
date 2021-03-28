@@ -25,5 +25,4 @@ jobs:
       run: python3 index.py
       env:
           IS_GITHUB : true
-          name: ${{secrets.name}}
-          pwd: ${{secrets.pwd}}
+          CONFIG_JSON: ${{ secrets.CONFIG_JSON }}
