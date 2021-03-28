@@ -19,6 +19,18 @@ notice_map={
     "QYWX_AGENTID": "",
 }
 
+def env2list(key):
+    try:
+        value = json.loads(os.getenv(key, []).strip()) if os.getenv(key) else []
+        if isinstance(value, list):
+            value = value
+        else:
+            value = []
+    except Exception as e:
+        print(e)
+        value = []
+    return value
+
 
 def env2config(save_file=False):
     result = json.loads(os.getenv("CONFIG_JSON", {}).strip()) if os.getenv("CONFIG_JSON") else {}
@@ -54,6 +66,9 @@ def env2str(key):
     return value
 
 
+
+
+
 def get_checkin_info(data):
     result = {}
     if isinstance(data, dict):
@@ -65,20 +80,12 @@ def get_checkin_info(data):
     return result
 
 
-
-def get_checkin_info(data):
-    result = {}
-    if isinstance(data, dict):
-        for one in checkin_map.keys():
-            result[one.lower()] = data.get(one,[])
-
-    return result
-
-
 def get_notice_info(data):
     result = {}
     if isinstance(data, dict):
         for one in notice_map.keys():
             result[one.lower()] = data.get(one, None)
-
+    else:
+        for one in notice_map.keys():
+            result[one.lower()] = env2str(one)
     return result
