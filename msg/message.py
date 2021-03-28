@@ -23,7 +23,7 @@ def msg_qywxapp(qywx_corpid,qywx_corpsecret,qywx_agentid,content):
         'textcard':{
             'title': '签到通知',
             'description': content,
-            'url': 'https://github.com/Carlga/dailycheckin'
+            'url': 'https://github.com/Carlga/sign'
         }
     }
     r = requests.post(f'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token={qywx_token}',json=data)
