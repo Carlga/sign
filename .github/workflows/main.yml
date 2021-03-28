@@ -26,4 +26,4 @@ jobs:
       env:
           IS_GITHUB : true
           name: ${{secrets.name}}
-          owd: ${{secrets.pwd}}
+          pwd: ${{secrets.pwd}}
