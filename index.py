@@ -1,16 +1,16 @@
 # -*- coding: utf8 -*-
 import os,json
-from config import checkin_map,get_checkin_info,get_notice_info
+from config import checkin_map,get_checkin_info,get_notice_info, env2config
 from msg.message import push_msg
 from motto import Motto
 
 
-def main_handler(event, context):
-    with open(os.path.join(os.path.dirname(__file__), "config/config.json"), "r", encoding="utf-8") as f:
-        data = json.loads(f.read())
-    motto = data.get('MOTTO')
-    check_info = get_checkin_info(data=data)
-    notice_info = get_notice_info(data=data)
+def main():
+    data = env2config()
+    if data:        
+        motto = data.get('MOTTO')
+        check_info = get_checkin_info(data=data)
+        notice_info = get_notice_info(data=data)
     content_list = []
     # print(check_info)
     for one_check,check_tuple in checkin_map.items():
@@ -32,9 +32,11 @@ def main_handler(event, context):
         try:
             content_list.append(Motto().main())
         except Exception as e:
-            print('获取每日一句错误',e)
+            print(e)
     
     push_msg(content_list,notice_info)
 
-        
+ 
+if __name__ == "__main__":
+    main()
 
