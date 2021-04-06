@@ -21,7 +21,7 @@ def main():
                 try:
                     msg = check_func(check_itme).main()
                     content_list.append(f"【{check_name}】\n{msg}")
-                    print(f"【{check_name}】\n{msg}")
+#                     print(f"【{check_name}】\n{msg}")
                 except Exception as e:
                     content_list.append(f"【{check_name}】\n{e}")
                     print(check_name, e)
