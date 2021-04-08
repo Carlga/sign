@@ -123,7 +123,7 @@ class Yingdi():
             print(e)
         return msg
 
-    # 领取浏览奖励
+    # 领取浏览奖励   taskId=2019071900004 登录游戏
     @staticmethod
     def get_liulan_lq(dict):
         url = 'https://ssl.kohsocialapp.qq.com:10001/play/h5taskgetgift'
